@@ -1,0 +1,115 @@
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+
+# Name of this project
+name: terraform-aws-cloudfront-s3-cdn
+
+# Tags of this project
+tags:
+  - aws
+  - terraform
+  - terraform-modules
+  - cdn
+  - cloudfront
+  - cloudfront-logs
+  - s3
+
+# Categories of this project
+categories:
+  - terraform-modules/cdn
+
+# Logo for this project
+#logo: docs/logo.png
+
+# License of this project
+license: "APACHE2"
+
+# Canonical GitHub repo
+github_repo: cloudposse/terraform-aws-cloudfront-s3-cdn
+
+# Badges to display
+badges:
+  - name: "Codefresh Build Status"
+    image: "https://g.codefresh.io/api/badges/pipeline/cloudposse/terraform-modules%2Fterraform-aws-cloudfront-s3-cdn?type=cf-1"
+    url: "https://g.codefresh.io/public/accounts/cloudposse/pipelines/5d169121757962ff25679794"
+  - name: "Latest Release"
+    image: "https://img.shields.io/github/release/cloudposse/terraform-aws-cloudfront-s3-cdn.svg"
+    url: "https://travis-ci.org/cloudposse/terraform-aws-cloudfront-s3-cdn/releases"
+  - name: "Slack Community"
+    image: "https://slack.cloudposse.com/badge.svg"
+    url: "https://slack.cloudposse.com"
+
+related:
+  - name: "terraform-aws-cloudfront-cdn"
+    description: "Terraform Module that implements a CloudFront Distribution (CDN) for a custom origin."
+    url: "https://github.com/cloudposse/terraform-aws-cloudfront-cdn"
+  - name: "terraform-aws-s3-log-storage"
+    description: "S3 bucket with built in IAM policy to allow CloudTrail logs"
+    url: "https://github.com/cloudposse/terraform-aws-s3-log-storage"
+
+# Short description of this project
+description: |-
+  Terraform module to provision an AWS CloudFront CDN with an S3 origin.
+
+# How to use this project
+usage: |-
+
+  For a complete example, see [examples/complete](examples/complete).
+
+  For automated tests of the complete example using [bats](https://github.com/bats-core/bats-core) and [Terratest](https://github.com/gruntwork-io/terratest) (which tests and deploys the example on AWS), see [test](test).
+
+  ```hcl
+  module "cdn" {
+    source           = "git::https://github.com/cloudposse/terraform-aws-cloudfront-s3-cdn.git?ref=master"
+    namespace        = "eg"
+    stage            = "prod"
+    name             = "app"
+    aliases          = ["assets.cloudposse.com"]
+    parent_zone_name = "cloudposse.com"
+  }
+  ```
+
+  ### Generating ACM Certificate
+
+  Use the AWS cli to [request new ACM certifiates](http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request.html) (requires email validation)
+  ```
+  aws acm request-certificate --domain-name example.com --subject-alternative-names a.example.com b.example.com *.c.example.com
+  ```
+
+
+
+  __NOTE__:
+
+  Although AWS Certificate Manager is supported in many AWS regions, to use an SSL certificate with CloudFront, it should be requested only in US East (N. Virginia) region.
+
+  https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cnames-and-https-requirements.html
+  > If you want to require HTTPS between viewers and CloudFront, you must change the AWS region to US East (N. Virginia) in the AWS Certificate Manager console before you request or import a certificate.
+
+  https://docs.aws.amazon.com/acm/latest/userguide/acm-regions.html
+  > To use an ACM Certificate with Amazon CloudFront, you must request or import the certificate in the US East (N. Virginia) region. ACM Certificates in this region that are associated with a CloudFront distribution are distributed to all the geographic locations configured for that distribution.
+
+  This is a fundamental requirement of CloudFront, and you will need to request the certificate in `us-east-1` region.
+
+  If there are warnings around the outputs when destroying using this module.
+  Then you can use this method for supressing the superfluous errors.
+  `TF_WARN_OUTPUT_ERRORS=1 terraform destroy`
+
+include:
+  - "docs/targets.md"
+  - "docs/terraform.md"
+
+# Contributors to this project
+contributors:
+  - name: "Erik Osterman"
+    github: "osterman"
+  - name: "Andriy Knysh"
+    github: "aknysh"
+  - name: "Jamie Nelson"
+    github: "Jamie-BitFlight"
+  - name: "Clive Zagno"
+    github: "cliveza"
+  - name: "David Mattia"
+    github: "dmattia"
