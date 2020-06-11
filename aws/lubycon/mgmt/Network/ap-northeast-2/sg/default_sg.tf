@@ -241,6 +241,15 @@ module "sg-pri-ec2" {
 
   ingress_with_cidr_blocks = [
   ]
+
+  computed_ingress_with_source_security_group_id = [
+    {
+      rule       = "ssh-tcp"
+      source_security_group_id = module.sg-pub-ec2-nat-instance.this_security_group_id
+      description = "lubycon-mgmt-vpc-cidr-ssh-tcp"
+    }
+  ]
+  number_of_computed_ingress_with_source_security_group_id = 1
 }
 
 output "sg-pri-ec2-security_group_id" {
