@@ -11,6 +11,7 @@ provider "aws" {
   region = var.aws_region
   profile = var.aws_profile
 }
+
 ####################
 # Remote Data Source
 ####################
@@ -29,13 +30,16 @@ variable "vpc_remote_backend_bucket_key" {
 variable "sg_remote_backend_bucket_key" {
   description = "sg_remote_backend_bucket_key"
 }
+variable "assets_remote_backend_bucket_key" {
+  description = "assets_remote_backend_bucket_key"
+}
 
 ####################
 # CloudFront & S3
 ####################
 variable "namespace" {
   type = string
-  default = "eg"
+  default = "lubycon"
 }
 
 variable "name" {
