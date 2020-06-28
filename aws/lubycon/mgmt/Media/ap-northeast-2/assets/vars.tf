@@ -56,3 +56,13 @@ variable "parent_zone_name" {
   type = string
   default = ""
 }
+
+variable "tags" {
+  type = map(string)
+  default = {
+    Product = "Lubycon"
+    Stack = "Mgmt"
+    Role = "CDN"
+    Duty = "LubyconAdmin"
+  }
+}

@@ -1,4 +1,4 @@
-module "cloudfront_s3_cdn" "lubycon-assets-cdn" {
+module "cloudfront_s3_cdn" {
   source                   = "../../../../../modules/cloudfront-s3-cdn/"
   namespace                = var.namespace
   stage                    = var.stage
@@ -12,4 +12,5 @@ module "cloudfront_s3_cdn" "lubycon-assets-cdn" {
   cors_expose_headers      = ["*"]
   logging_enabled          = false
   default_ttl              = 86400
+  tags                     = var.tags
 }
