@@ -10,7 +10,7 @@ variable "name" {
   type = string
 }
 
-variable "stage" {
+variable "stack" {
   type = string
 }
 
