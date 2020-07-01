@@ -19,7 +19,7 @@
 | custom_error_response | List of one or more custom error response element maps | object | `<list>` | no |
 | default_root_object | Object that CloudFront return when requests the root URL | string | `index.html` | no |
 | default_ttl | Default amount of time (in seconds) that an object is in a CloudFront cache | number | `60` | no |
-| delimiter | Delimiter to be used between `namespace`, `stage`, `name` and `attributes` | string | `-` | no |
+| delimiter | Delimiter to be used between `namespace`, `stack`, `name` and `attributes` | string | `-` | no |
 | enabled | Select Enabled if you want CloudFront to begin processing requests as soon as the distribution is created, or select Disabled if you do not want CloudFront to begin processing requests after the distribution is created. | bool | `true` | no |
 | encryption_enabled | When set to 'true' the resource will have aes256 encryption enabled by default | bool | `false` | no |
 | error_document | An absolute path to the document to return in case of a 4XX error | string | `` | no |
@@ -52,7 +52,7 @@
 | price_class | Price class for this distribution: `PriceClass_All`, `PriceClass_200`, `PriceClass_100` | string | `PriceClass_100` | no |
 | redirect_all_requests_to | A hostname to redirect all website requests for this distribution to. If this is set, it overrides other website settings | string | `` | no |
 | routing_rules | A json array containing routing rules describing redirect behavior and when redirects are applied | string | `` | no |
-| stage | Stage (e.g. `prod`, `dev`, `staging`) | string | `` | no |
+| stack | Stack (e.g. `prod`, `dev`, `staging`) | string | `` | no |
 | static_s3_bucket | aws-cli is a bucket owned by amazon that will perminantly exist. It allows for the data source to be called during the destruction process without failing. It doesn't get used for anything else, this is a safe workaround for handling the fact that if a data source like the one `aws_s3_bucket.selected` gets an error, you can't continue the terraform process which also includes the 'destroy' command, where is doesn't even need this data source! Don't change this bucket name, it's a variable so that we can provide this description. And this works around a problem that is an edge case. | string | `aws-cli` | no |
 | tags | Additional tags (e.g. map(`BusinessUnit`,`XYZ`) | map(string) | `<map>` | no |
 | trusted_signers | The AWS accounts, if any, that you want to allow to create signed URLs for private content. 'self' is acceptable. | list(string) | `<list>` | no |

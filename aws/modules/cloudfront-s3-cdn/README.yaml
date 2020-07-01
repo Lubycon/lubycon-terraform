@@ -65,7 +65,7 @@ usage: |-
   module "cdn" {
     source           = "git::https://github.com/cloudposse/terraform-aws-cloudfront-s3-cdn.git?ref=master"
     namespace        = "eg"
-    stage            = "prod"
+    stack            = "prod"
     name             = "app"
     aliases          = ["assets.cloudposse.com"]
     parent_zone_name = "cloudposse.com"

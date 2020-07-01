@@ -1,7 +1,7 @@
 module "cloudfront_s3_cdn" {
   source                   = "../../../../../modules/cloudfront-s3-cdn/"
   namespace                = var.namespace
-  stage                    = var.stage
+  stack                    = var.stack
   name                     = var.name
   parent_zone_name         = var.parent_zone_name
   use_regional_s3_endpoint = true

@@ -4,9 +4,9 @@ variable "namespace" {
   default     = ""
 }
 
-variable "stage" {
+variable "stack" {
   type        = string
-  description = "Stage (e.g. `prod`, `dev`, `staging`)"
+  description = "Stack (e.g. `prod`, `dev`, `staging`)"
   default     = ""
 }
 
@@ -18,7 +18,7 @@ variable "name" {
 variable "delimiter" {
   type        = string
   default     = "-"
-  description = "Delimiter to be used between `namespace`, `stage`, `name` and `attributes`"
+  description = "Delimiter to be used between `namespace`, `stack`, `name` and `attributes`"
 }
 
 variable "attributes" {

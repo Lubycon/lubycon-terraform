@@ -47,7 +47,7 @@ variable "name" {
   default = "assets"
 }
 
-variable "stage" {
+variable "stack" {
   type = string
   default = "prod"
 }
