@@ -18,7 +18,7 @@ locals {
 module "origin_label" {
   source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.16.0"
   namespace  = var.namespace
-  stack      = var.stack
+  stage      = var.stack
   name       = var.name
   delimiter  = var.delimiter
   attributes = compact(concat(var.attributes, var.extra_origin_attributes))
@@ -136,7 +136,7 @@ module "logs" {
   source                   = "git::https://github.com/cloudposse/terraform-aws-s3-log-storage.git?ref=tags/0.7.0"
   enabled                  = var.logging_enabled
   namespace                = var.namespace
-  stack                    = var.stack
+  stage                    = var.stack
   name                     = var.name
   delimiter                = var.delimiter
   attributes               = compact(concat(var.attributes, var.extra_logs_attributes))
@@ -151,7 +151,7 @@ module "logs" {
 module "distribution_label" {
   source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.16.0"
   namespace  = var.namespace
-  stack      = var.stack
+  stage      = var.stack
   name       = var.name
   delimiter  = var.delimiter
   attributes = var.attributes
