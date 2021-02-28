@@ -15,9 +15,6 @@ variable "alpha_lubycon_io_domain" {
 ####################
 # General
 ####################
-variable "lubycon_io_github_pages_domain" {
-  default = "lubycon.github.io"
-}
 variable "github_pages_ip_addresses"{
   default = ["185.199.108.153", "185.199.109.153", "185.199.110.153", "185.199.111.153",]
 }

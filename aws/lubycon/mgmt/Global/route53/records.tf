@@ -49,9 +49,9 @@ module "alpha-lubycon-io-records" {
     },
     {
       name = "ui-kit"
-      type = "CNAME"
+      type = "A"
       ttl  = 30
-      records = [var.lubycon_io_github_pages_domain]
+      records = var.github_pages_ip_addresses
     },
   ]
 }
