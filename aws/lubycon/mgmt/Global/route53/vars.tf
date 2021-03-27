@@ -6,11 +6,19 @@ variable "lubycon_io_domain" {
 }
 
 ####################
+# storybook.lubyon.io
+####################
+variable "storybook_lubycon_io_domain" {
+  default = "storybook.lubycon.io"
+}
+
+####################
 # alpha.lubyon.io
 ####################
 variable "alpha_lubycon_io_domain" {
   default = "alpha.lubycon.io"
 }
+
 
 ####################
 # General
