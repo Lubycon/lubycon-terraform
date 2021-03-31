@@ -8,7 +8,7 @@ variable "image_id" {
 
 # Until the end AWS free tier
 variable "instance_types" {
-  default = ["t2.micro"]
+  default = ["t3.nano"]
 }
 
 # Until the end AWS free tier
