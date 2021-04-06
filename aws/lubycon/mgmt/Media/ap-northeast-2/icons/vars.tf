@@ -41,7 +41,7 @@ variable "namespace" {
   default = "lubycon"
 }
 variable "name" {
-  default = "assets"
+  default = "icons"
 }
 variable "stage" {
   default = "prod"
@@ -53,7 +53,7 @@ variable "price_class" {
   default = "PriceClass_All"
 }
 variable "aliases" {
-  default = ["assets.lubycon.io"]
+  default = ["icons.lubycon.io"]
 }
 variable "default_ttl" {
   default = 0
@@ -68,7 +68,7 @@ variable "tags" {
   default = {
     Product = "Lubycon"
     Stack = "Mgmt"
-    Role = "CDN"
+    Role = "ui-kit-icons"
     Duty = "LubyconAdmin"
   }
 }

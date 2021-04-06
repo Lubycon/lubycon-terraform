@@ -2,7 +2,7 @@ region = "us-east-2"
 
 namespace = "eg"
 
-stack = "test"
+stage = "test"
 
 name = "cloudfront-s3-cdn"
 

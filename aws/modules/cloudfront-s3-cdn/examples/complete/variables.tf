@@ -10,10 +10,15 @@ variable "name" {
   type = string
 }
 
-variable "stack" {
+variable "stage" {
   type = string
 }
 
 variable "parent_zone_name" {
   type = string
+}
+
+variable "attributes" {
+  default = []
+  type    = list(string)
 }
